@@ -109,7 +109,28 @@ Specify the target resource as IAM-Role-AutoRemediation Lambda function:
 
 Then create the rule.
 
+**Step 4: Testing the pipeline**
 Once you create the rule, when AWS IAM Access Analyzer evaluates your environment and detects that CloudScale-Vulnerable-Compute-Role allows external entity assumption, it sends an EventBridge event that triggers your Lambda function to overwrite the unsafe trust policy instantly.
 
+To test the policy, navigate to Lambda, click on the Event Function (IAM-Role-AutoRemediation, in this case) > Test > input this command in the Event JSON:
+
+{
+  "version": "0",
+  "id": "cdc75b9f-1d8f-e14f-8646-8a7155099888",
+  "detail-type": "Access Analyzer Finding Created",
+  "source": "aws.access-analyzer",
+  "account": "123456789012",
+  "time": "2026-10-15T21:00:00Z",
+  "region": "us-east-1",
+  "detail": {
+    "resourceType": "AWS::IAM::Role",
+    "resource": "arn:aws:iam::123456789012:role/CloudScale-Audit-Test-Role",
+    "status": "ACTIVE"
+  }
+}
+
+Once you click "test," you'll receive this error, suggesting the user isn't authorized to perform the operation: 
+<img width="2812" height="1633" alt="image" src="https://github.com/user-attachments/assets/247c25c4-197e-478a-9bae-614f32d9e550" />
+<img width="2296" height="524" alt="image" src="https://github.com/user-attachments/assets/ecabd6c0-203c-4866-b146-4e4c541fdb9c" />
 
 
