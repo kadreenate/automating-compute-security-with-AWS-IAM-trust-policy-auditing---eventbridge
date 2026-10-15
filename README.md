@@ -129,7 +129,7 @@ To test the policy, navigate to Lambda, click on the Event Function (IAM-Role-Au
   }
 }
 
-Once you click "test," you'll receive this error, suggesting the user isn't authorized to perform the operation: 
+Once you click "Test," you'll receive this error, suggesting the user isn't authorized to perform the operation: 
 <img width="2812" height="1633" alt="image" src="https://github.com/user-attachments/assets/247c25c4-197e-478a-9bae-614f32d9e550" />
 <img width="2296" height="524" alt="image" src="https://github.com/user-attachments/assets/ecabd6c0-203c-4866-b146-4e4c541fdb9c" />
 
